@@ -9,12 +9,12 @@ from oci.ai_forecasting.models.schema import Schema
 from oci.config import from_file
 
 # change the config file location
-config = from_file("/Users/rommonda/.oci/config")
+config = from_file("~/.oci/config")
 
-compartment_id = "ocid1.compartment.oc1..aaaaaaaaa6b6bypmwsy5z3mhwdfdnc4mlt35xn5solpepqd6slplonok7lvq"
+compartment_id = "ocid1.compartment.oc1..aaaaaaaaonxo6xgq5hmmbqmxqthumokf"
 forecast_client = ForecastClient(
     config,
-    service_endpoint="https://forecasting-int.aiservice.us-ashburn-1.oci.oraclecloud.com",
+    service_endpoint="https://forecasting-{region}.oci.oraclecloud.com",
 )
 
 # CREATE PROJECT

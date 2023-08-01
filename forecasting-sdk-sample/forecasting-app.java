@@ -3,9 +3,7 @@ package org.ocasfc;
 import com.oracle.bmc.ConfigFileReader;
 import com.oracle.bmc.aiforecasting.Forecast;
 import com.oracle.bmc.aiforecasting.ForecastClient;
-//import com.oracle.bmc.aiforecasting.model.ConfidenceInterval;
 import com.oracle.bmc.aiforecasting.model.*;
-//import com.oracle.bmc.aiforecasting.model.ForecastFrequency;
 import com.oracle.bmc.aiforecasting.requests.CreateDataAssetRequest;
 import com.oracle.bmc.aiforecasting.requests.CreateForecastRequest;
 import com.oracle.bmc.aiforecasting.requests.CreateProjectRequest;
@@ -46,16 +44,16 @@ import java.util.Arrays;
 
 public class Application {
 
-    private static final String compartmentId = "ocid1.tenancy.oc1..aaaaaaaaonxo6xgq5hmmbqmxqthumokfzgkdz6nje5g3mfoqq37azuuui3ea";
+    private static final String compartmentId = "ocid1.tenancy.oc1..aaaaaaaaonxo6xgq5hmmbqmxqthumokf";
 
     public static void main(String[] args) throws IOException {
 
-        final ConfigFileReader.ConfigFile configFile = ConfigFileReader.parse("/Users/rommonda/.oci/config");
+        final ConfigFileReader.ConfigFile configFile = ConfigFileReader.parse("~/.oci/config");
         final AuthenticationDetailsProvider provider = new ConfigFileAuthenticationDetailsProvider(configFile);
 
         /* Create forecast service client */
         ForecastClient forecastClient = new ForecastClient(provider);
-        forecastClient.setEndpoint("https://forecasting-int.aiservice.us-ashburn-1.oci.oraclecloud.com");
+        forecastClient.setEndpoint("https://forecasting-{region}.oci.oraclecloud.com");
 
         //Create Project
         String projectId = createProject(forecastClient);
